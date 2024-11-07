@@ -4,72 +4,108 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // Logo
-              CircleAvatar(
+      body: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+             CircleAvatar(
                 radius: 50,
                 backgroundImage: AssetImage('img/SwapShelf.png'),
               ),
-              SizedBox(height: 30),
-              // Email Login Button
-              ElevatedButton(
-                onPressed: () {
-                  // Email login logic
-                },
-                style: ElevatedButton.styleFrom(
-                  minimumSize: Size(200, 50),
-                ),
-                child: Text("Sign in with Email"),
+            // Uygulama Başlığı
+            Text(
+              'Swapshelf',
+              style: TextStyle(
+                fontSize: 32,
+                fontWeight: FontWeight.bold,
               ),
-              SizedBox(height: 10),
-              // Google Login Button
-              ElevatedButton(
-                onPressed: () {
-                  // Google login logic
-                },
-                style: ElevatedButton.styleFrom(
-                  minimumSize: Size(200, 50),
-                ),
-                child: Text("Sign in with Google"),
+            ),
+            SizedBox(height: 40),
+            
+            // Email Giriş Alanı
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Email',
+                border: OutlineInputBorder(),
               ),
-              SizedBox(height: 10),
-              // Admin Login Button
-              ElevatedButton(
-                onPressed: () {
-                  // Admin login logic
-                },
-                style: ElevatedButton.styleFrom(
-                  minimumSize: Size(200, 50),
-                ),
-                child: Text("Admin Login"),
+            ),
+            SizedBox(height: 16),
+            
+            // Şifre Giriş Alanı
+            TextField(
+              obscureText: true,
+              decoration: InputDecoration(
+                labelText: 'Şifre',
+                border: OutlineInputBorder(),
               ),
-              SizedBox(height: 20),
-              // Sign Up Option
-              Align(
-                alignment: Alignment.centerRight,
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 30.0),
-                  child: GestureDetector(
-                    onTap: () {
-                      // Navigate to Sign Up
-                    },
-                    child: Text(
-                      "Sign Up",
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.blue,
-                        decoration: TextDecoration.underline,
-                      ),
-                    ),
-                  ),
-                ),
+            ),
+            SizedBox(height: 24),
+            
+            // Giriş Butonu
+            ElevatedButton(
+              onPressed: () {
+                // Giriş işlemi
+              },
+              child: Text('Giriş Yap'),
+              style: ElevatedButton.styleFrom(
+                minimumSize: Size(double.infinity, 50),
               ),
-            ],
-          ),
+            ),
+            SizedBox(height: 16),
+            
+            // Kayıt Ol Butonu
+            OutlinedButton(
+              onPressed: () {
+                // Kayıt işlemi
+              },
+              child: Text('Kayıt Ol'),
+              style: OutlinedButton.styleFrom(
+                minimumSize: Size(double.infinity, 50),
+              ),
+            ),
+            SizedBox(height: 24),
+            
+            // veya Google ile giriş yap
+            Row(
+              children: [
+                Expanded(child: Divider()),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Text('veya'),
+                ),
+                Expanded(child: Divider()),
+              ],
+            ),
+            SizedBox(height: 16),
+
+            // Admin giriş yap Butonu
+ElevatedButton.icon(
+  onPressed: () {
+    // Admin giriş işlemi
+  },
+  icon: Icon(Icons.login),
+  label: Text('Admin Girişi'),
+  style: ElevatedButton.styleFrom(
+    minimumSize: Size(double.infinity, 50),
+    backgroundColor: const Color.fromARGB(255, 224, 220, 219),
+  ),
+),
+SizedBox(height: 15), // İki buton arasına 15 piksel boşluk ekler
+// Google ile giriş yap Butonu
+ElevatedButton.icon(
+  onPressed: () {
+    // Google ile giriş işlemi
+  },
+  icon: Icon(Icons.login),
+  label: Text('Google ile Giriş Yap'),
+  style: ElevatedButton.styleFrom(
+    minimumSize: Size(double.infinity, 50),
+    backgroundColor: const Color.fromARGB(255, 224, 220, 219),
+  ),
+),
+
+          ],
         ),
       ),
     );

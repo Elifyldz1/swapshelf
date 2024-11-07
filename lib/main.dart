@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'Login/loginscreen.dart';
 
-
 void main() {
-  runApp(SwapShelf());
+  runApp(SwapshelfApp());
 }
 
-class SwapShelf extends StatelessWidget {
+class SwapshelfApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'SwapShelf',
+      title: 'Swapshelf',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginScreen(),
+      home: LoginScreen(), // LoginScreen ana ekran olarak ayarlandı
     );
   }
 }
